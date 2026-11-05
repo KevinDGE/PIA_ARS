@@ -1,0 +1,125 @@
+@page { size: Letter; margin: 20mm 19mm 21mm 19mm; }
+@page :first { margin: 0; }
+:root {
+  --navy: #0F1F38; --ink: #1F2937; --muted: #5B6475; --line: #D7DCE3;
+  --soft: #F3F5F8; --gold: #B8901C;
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; margin: 0; font-family: Carlito, Calibri, "Liberation Sans", Arial, sans-serif; font-size: 10.6pt;
+       line-height: 1.45; color: var(--ink); background: #fff; }
+.page { break-before: page; }
+h1 { font-size: 21pt; color: var(--navy); margin: 0 0 10pt; line-height: 1.2; font-weight: 700;
+     letter-spacing: -0.2pt; }
+h2 { font-size: 13.5pt; color: var(--navy); margin: 16pt 0 6pt; font-weight: 700; break-after: avoid; }
+p { margin: 0 0 7pt; text-align: justify; hyphens: auto; }
+ul, ol { margin: 0 0 8pt; padding-left: 16pt; }
+li { margin-bottom: 2.5pt; }
+b { font-weight: 700; }
+.muted { color: var(--muted); font-size: 8.6pt; }
+.note { background: var(--soft); border-radius: 6pt; padding: 7pt 10pt; font-size: 9.4pt; color: var(--muted); }
+
+/* tablas */
+table { border-collapse: collapse; width: 100%; margin: 0 0 9pt; }
+th, td { border: 0.6pt solid var(--line); padding: 4pt 6pt; vertical-align: top; text-align: left; }
+.kv th { width: 27%; background: var(--soft); color: var(--navy); font-weight: 700; }
+.kv th.hd, .grid thead th { background: var(--navy); color: #fff; font-weight: 700; }
+.grid tbody tr:nth-child(even) td { background: #FAFBFC; }
+.grid th { background: var(--soft); color: var(--navy); }
+.grid thead th { background: var(--navy); color: #fff; }
+td.c, th.c { text-align: center; }
+.small { font-size: 9.3pt; }
+.xsmall { font-size: 8.4pt; line-height: 1.28; }
+.xsmall td, .xsmall th { padding: 3pt 4pt; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+.summary td { vertical-align: middle; }
+.regla { width: 70%; margin-left: auto; margin-right: auto; }
+.regla th { text-align: center; }
+.regla .corner { font-size: 8pt; }
+.meta { display: inline-block; margin-top: 2pt; font-weight: 700; color: var(--navy); }
+.kk td:nth-child(2) { font-weight: 600; }
+
+.badge { display: inline-block; border-radius: 9pt; padding: 1pt 7pt; font-size: 8.4pt; font-weight: 700;
+         white-space: nowrap; }
+
+/* tarjetas */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin-bottom: 8pt; }
+.two > table { margin: 0; }
+.three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9pt; margin-bottom: 9pt; }
+.card { background: var(--soft); border-radius: 7pt; padding: 8pt 10pt; break-inside: avoid; }
+.card p { margin: 0; text-align: left; }
+.lbl { font-size: 8.2pt; letter-spacing: 1.2pt; text-transform: uppercase; font-weight: 700; color: var(--gold);
+       margin-bottom: 3pt; }
+.vals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7pt; margin-bottom: 8pt; }
+.val { background: var(--soft); border-radius: 7pt; padding: 6pt 9pt; }
+.val b { display: block; color: var(--navy); }
+.val span { font-size: 9.2pt; color: var(--muted); }
+.foda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; margin: 4pt 0 10pt; break-inside: avoid; }
+.foda { border-radius: 7pt; padding: 7pt 10pt; font-size: 9.4pt; }
+.foda ul { margin: 0; }
+.f0 { background: #E6F0EA; } .f1 { background: #FBEBEA; } .f2 { background: #E7EEF8; } .f3 { background: #FDF3E1; }
+
+/* fichas de riesgo */
+.risk { break-inside: avoid; margin: 0 0 9pt; border: 0.8pt solid var(--line); border-radius: 8pt; overflow: hidden; }
+.risk-hd { display: flex; align-items: center; gap: 8pt; padding: 6pt 9pt; background: var(--tint); }
+.rid { font-weight: 700; color: var(--navy); font-size: 12pt; }
+.rname { flex: 1; font-weight: 700; color: var(--navy); font-size: 11pt; }
+.risk-t { margin: 0; font-size: 9pt; line-height: 1.3; }
+.risk-t th, .risk-t td { padding: 3pt 6pt; }
+.risk-t th, .risk-t td { border-left: 0; border-right: 0; }
+.risk-t tr:last-child th, .risk-t tr:last-child td { border-bottom: 0; }
+.risk-t th { width: 19%; color: var(--navy); background: #fff; font-weight: 700; }
+.risk-t td + th { width: 11%; }
+.risk-t td { width: 35%; }
+.risk-t td[colspan] { width: auto; }
+ol.acc { margin: 0; padding-left: 13pt; }
+ol.acc li { margin-bottom: 1pt; }
+
+/* figuras */
+.fig { margin: 8pt 0 12pt; text-align: center; break-inside: avoid; }
+.fig svg { width: 100%; height: auto; }
+.fig.heat svg { width: 76%; }
+figcaption { font-size: 8.8pt; color: var(--muted); margin-top: 4pt; }
+
+/* referencias */
+.ref { padding-left: 24pt; text-indent: -24pt; text-align: left; word-break: break-word; }
+
+/* índice */
+.toc-title { margin-bottom: 14pt; }
+.toc-list { list-style: none; padding: 0; margin: 0; }
+.toc-list li { margin: 0; }
+.toc-list a { display: flex; align-items: baseline; color: var(--ink); text-decoration: none; padding: 1.1pt 0; line-height: 1.25; }
+.toc-l1 a { font-weight: 700; color: var(--navy); margin-top: 4pt; font-size: 11pt; }
+.toc-l2 a { padding-left: 16pt; font-size: 10pt; }
+.toc-list .dots { flex: 1; border-bottom: 1pt dotted #9AA3B2; margin: 0 5pt; transform: translateY(-3pt); }
+.toc-list .p { min-width: 16pt; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* portada */
+.cover { height: 279.4mm; padding: 16mm 20mm 14mm; display: flex; flex-direction: column; }
+.cover-logos { display: flex; justify-content: space-between; gap: 12mm; }
+.logo-box { width: 52mm; height: 30mm; display: flex; align-items: center; justify-content: center; }
+.logo-box img { max-width: 100%; max-height: 100%; }
+.logo-box.pend { border: 1.2pt dashed #9AA3B2; border-radius: 6pt; flex-direction: column; text-align: center;
+                 color: var(--muted); padding: 4pt; }
+.logo-box.pend span { font-weight: 700; font-size: 10pt; }
+.logo-box.pend small { font-size: 6.8pt; margin-top: 3pt; color: #B71C1C; }
+.cover-uni { text-align: center; font-weight: 700; color: var(--navy); font-size: 12.5pt; margin: 8mm 0 7mm;
+             line-height: 1.5; }
+.pend-txt { color: #B71C1C; font-weight: 600; }
+.cover-panel { background: var(--navy); color: #fff; border-radius: 10pt; padding: 11mm 12mm 10mm; text-align: center; }
+.casino-logo { width: 62mm; margin-bottom: 7mm; }
+.cover-kicker { font-size: 9pt; letter-spacing: 2pt; text-transform: uppercase; color: #E2C46A; font-weight: 700; }
+.cover-title { font-size: 28pt; font-weight: 700; line-height: 1.15; margin: 3mm 0 3mm; }
+.cover-sub { font-size: 12pt; color: #CDD5E3; }
+.cover-data { margin: 8mm 0 5mm; font-size: 10.5pt; }
+.cover-data th { width: 26%; background: var(--soft); color: var(--navy); }
+.cover-team { font-size: 10.5pt; }
+.cover-team thead th { background: var(--navy); color: #fff; }
+.cover-team td:last-child, .cover-team th:last-child { width: 34%; text-align: center; }
+.cover-note { margin-top: auto; font-size: 8pt; color: var(--muted); text-align: center; }
+
+.regla { break-inside: avoid; }
+.nw { white-space: nowrap; }
+.summary { font-size: 8.9pt; break-inside: avoid; }
+.summary td, .summary th { padding: 3pt 5pt; }
