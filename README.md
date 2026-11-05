@@ -19,7 +19,3 @@ bash src/build_all.sh
 ```
 
 El script genera el PDF (HTML + Chromium), el Excel (openpyxl, con fórmulas recalculadas), el PowerPoint (pptxgenjs) y al final corre `src/verify.py`, que compara IDs, niveles, estrategias y responsables entre los tres archivos y revisa el índice del PDF.
-
-## Pendientes
-
-- Matrículas de David Emiliano Rangel Tovar, Fernando Garza Chavez, Alejandro Martinez Moya y Rene Villareal Torres (`INTEGRANTES` en `src/data.py`).
