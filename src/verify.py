@@ -134,7 +134,9 @@ orden = ["1. Descripción de la empresa", "2. Introducción", "3. Metodología",
          "6. Monitoreo y control", "7. Comunicación", "8. Conclusión", "Referencias"]
 pos = [next((i for i, t in enumerate(texto[2:], start=2) if t.lstrip().startswith(o)), None) for o in orden]
 check(all(p is not None for p in pos) and pos == sorted(pos), f"Orden de secciones: {pos}")
-check("Matrícula pendiente" in texto[0] and "1997415" in texto[0], "Portada: matrículas")
+for _n, _m in D.INTEGRANTES:
+    check(_m and _n in texto[0] and _m in texto[0], f"Portada: falta {_n} o su matrícula")
+check("pendiente" not in texto[0].lower(), "Portada: aún hay datos pendientes")
 check(D.FECHA in texto[0] and D.DOCENTE in texto[0], "Portada: fecha o docente")
 
 if errors:

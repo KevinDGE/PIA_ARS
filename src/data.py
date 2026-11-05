@@ -14,11 +14,11 @@ TITULO = "Plan de Administración de Riesgos de TI"
 
 PENDIENTE = "Pendiente"
 INTEGRANTES = [
-    ("David Emiliano Rangel Tovar", None),
-    ("Fernando Garza Chavez", None),
+    ("David Emiliano Rangel Tovar", "2155498"),
+    ("Fernando Garza Chavez", "2142789"),
     ("Kevin Daniel Grimaldo Esquivel", "1997415"),
-    ("Alejandro Martinez Moya", None),
-    ("Rene Villareal Torres", None),
+    ("Alejandro Martinez Moya", "2225328"),
+    ("Rene Villareal Torres", "2142670"),
 ]
 
 # ---------------------------------------------------------------- escalas

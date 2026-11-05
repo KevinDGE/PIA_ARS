@@ -125,11 +125,11 @@ pres.addSection({ title: "Introducción" });
   s.addText(D.TITULO, { placeholder: "title" });
   s.addText(`Caso académico: ${D.EMPRESA}`, { x: M, y: 4.2, w: 10, h: 0.5, fontSize: 20, color: "CDD5E3", margin: 0,
     isTextBox: true, objectName: "Subtítulo" });
-  const names = D.INTEGRANTES.map((x) => x[0]);
+  const names = D.INTEGRANTES.map(([n, m]) => (m ? `${n} · ${m}` : n));
   s.addText(names.slice(0, 3).map((n, i) => ({ text: n, options: { breakLine: i < 2 } })),
-    { x: M, y: 5.3, w: 4.6, h: 1.1, fontSize: 15, color: C.background1, margin: 0, valign: "top", isTextBox: true, objectName: "Integrantes 1" });
+    { x: M, y: 5.3, w: 4.6, h: 1.1, fontSize: 14, color: C.background1, margin: 0, valign: "top", isTextBox: true, objectName: "Integrantes 1" });
   s.addText(names.slice(3).map((n, i, a) => ({ text: n, options: { breakLine: i < a.length - 1 } })),
-    { x: M + 4.7, y: 5.3, w: 4.2, h: 1.1, fontSize: 15, color: C.background1, margin: 0, valign: "top", isTextBox: true, objectName: "Integrantes 2" });
+    { x: M + 4.7, y: 5.3, w: 4.2, h: 1.1, fontSize: 14, color: C.background1, margin: 0, valign: "top", isTextBox: true, objectName: "Integrantes 2" });
   s.addText([{ text: "Docente", options: { bold: true, color: C.accent1, breakLine: true } },
              { text: D.DOCENTE, options: { breakLine: true } },
              { text: `Fecha: ${D.FECHA}` }],
