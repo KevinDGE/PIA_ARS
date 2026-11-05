@@ -23,5 +23,3 @@ El script genera el PDF (HTML + Chromium), el Excel (openpyxl, con fórmulas rec
 ## Pendientes
 
 - Matrículas de David Emiliano Rangel Tovar, Fernando Garza Chavez, Alejandro Martinez Moya y Rene Villareal Torres (`INTEGRANTES` en `src/data.py`).
-- Nombre de la facultad (`FACULTAD` en `src/data.py`).
-- Logos de la UANL y de la facultad (ver `assets/logos/LEEME.md`).

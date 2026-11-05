@@ -105,9 +105,13 @@ pres.addSection({ title: "Introducción" });
   const logos = [["uanl", "Logo UANL"], ["facultad", "Logo de la facultad"]];
   logos.forEach(([stem, label], k) => {
     const x = W - M - 1.9 - (1 - k) * 2.1;
-    const f = ["png", "jpg"].map((e) => path.join(ROOT, "assets", "logos", `${stem}.${e}`)).find((p) => fs.existsSync(p));
+    const f = ["png"].map((e) => path.join(ROOT, "assets", "logos", `${stem}.${e}`)).find((p) => fs.existsSync(p));
     if (f) {
-      s.addImage({ path: f, x, y: 0.5, w: 1.9, h: 1.0, sizing: { type: "contain", w: 1.9, h: 1.0 }, objectName: label, altText: label });
+      // respeta la proporción del logo dentro de un espacio de 1.9 x 1.1 in
+      const buf = fs.readFileSync(f);
+      const iw = buf.readUInt32BE(16), ih = buf.readUInt32BE(20);
+      const sc = Math.min(1.9 / iw, 1.1 / ih), w = iw * sc, h = ih * sc;
+      s.addImage({ path: f, x: x + (1.9 - w) / 2, y: 0.45 + (1.1 - h) / 2, w, h, objectName: label, altText: label });
     } else {
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 0.5, w: 1.9, h: 1.0, rectRadius: 0.08, fill: { color: C.text2 },
         line: { color: "8E9AB0", dashType: "dash", width: 1 }, objectName: `${label} pendiente` });
