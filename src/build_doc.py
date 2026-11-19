@@ -472,7 +472,7 @@ def outline_pages(pdf_path):
     return res
 
 
-def stamp(pdf_in, pdf_out):
+def stamp(pdf_in, pdf_out, title=None):
     pdfmetrics.registerFont(TTFont("LibSans", "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"))
     reader = PdfReader(pdf_in)
     writer = PdfWriter(clone_from=reader)
@@ -489,7 +489,7 @@ def stamp(pdf_in, pdf_out):
         c.save()
         buf.seek(0)
         page.merge_page(PdfReader(buf).pages[0])
-    writer.add_metadata({"/Title": f"PIA - {D.TITULO} - {D.EMPRESA}",
+    writer.add_metadata({"/Title": title or f"PIA - {D.TITULO} - {D.EMPRESA}",
                          "/Author": ", ".join(n for n, _ in D.INTEGRANTES),
                          "/Subject": f"{D.MATERIA}, grupo {D.GRUPO}"})
     writer.write(pdf_out)

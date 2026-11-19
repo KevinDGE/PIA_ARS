@@ -12,4 +12,5 @@ python3 build_xlsx.py               # Excel
 python3 "$SKILLS/xlsx/scripts/recalc.py" ../entregables/Matriz_de_Riesgos_Casino_Royale.xlsx 90
 node build_pptx.js                  # PowerPoint
 python3 "$PPTX_SKILL/scripts/office/validate.py" ../entregables/Presentacion_Ejecutiva_Casino_Royale.pptx
+python3 build_guion.py              # guion de la presentación (PDF)
 python3 verify.py                   # coherencia entre los tres entregables

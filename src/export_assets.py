@@ -10,7 +10,10 @@ os.makedirs(BUILD, exist_ok=True)
 keys = ["EMPRESA", "MATERIA", "GRUPO", "UNIVERSIDAD", "FACULTAD", "DOCENTE", "FECHA", "TITULO", "INTEGRANTES",
         "RIESGOS", "KPI_KRI", "COLOR", "TEXTO_SOBRE", "TINTE", "NIVELES", "FASES", "FASE_TRANSVERSAL", "RETOS",
         "FRECUENCIA_MONITOREO", "DURACION", "MESES"]
-json.dump({k: getattr(D, k) for k in keys}, open(os.path.join(BUILD, "data.json"), "w"), ensure_ascii=False, indent=1)
+import guion as G
+salida = {k: getattr(D, k) for k in keys}
+salida["NOTAS"] = [G.nota(d) for d in G.DIAPOSITIVAS]
+json.dump(salida, open(os.path.join(BUILD, "data.json"), "w"), ensure_ascii=False, indent=1)
 for name, svg in [("mapa_calor", heatmap_svg()), ("linea_tiempo", gantt_svg())]:
     p = os.path.join(BUILD, name + ".svg")
     open(p, "w").write(svg)

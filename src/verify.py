@@ -81,6 +81,19 @@ for n, slide in enumerate(prs.slides, start=1):
                 cells = [norm(c.text) for c in row.cells]
                 pp[cells[0]] = (cells[2], cells[3], cells[5])
 check(pp == esperado, f"PowerPoint: tabla de riesgos no coincide ({set(pp) ^ set(esperado)})")
+import guion as G
+for n, (slide, d) in enumerate(zip(prs.slides, G.DIAPOSITIVAS), start=1):
+    nt = slide.notes_slide.notes_text_frame.text
+    check(nt.startswith(f"[{G.ORADORES[d['quien']]}]"), f"Diapositiva {n}: las notas no indican al orador del guion")
+    check(norm(d["texto"][0]) in norm(nt), f"Diapositiva {n}: las notas no coinciden con el guion")
+check(G.DIAPOSITIVAS[0]["quien"] == "david" and all(G.DIAPOSITIVAS[i]["quien"] == "david" for i in (0, 1, 2)),
+      "La introducción (diapositivas 1 a 3) debe ser de David")
+GUION_PDF = os.path.join(E, "Guion_Presentacion_Ejecutiva.pdf")
+gtxt = norm(" ".join((p_.extract_text() or "") for p_ in PdfReader(GUION_PDF).pages))
+for quien, _, ss in G.PARTES:
+    check(G.ORADORES[quien] in gtxt, f"Guion PDF: falta {G.ORADORES[quien]}")
+for d in G.DIAPOSITIVAS:
+    check(norm(d["texto"][0])[:80] in gtxt, f"Guion PDF: falta el texto de la diapositiva {d['n']}")
 palabras = sum(len((s.notes_slide.notes_text_frame.text).split()) for s in prs.slides)
 print(f"Notas del orador: {palabras} palabras (~{palabras / 130:.1f} min a 130 palabras/min)")
 
