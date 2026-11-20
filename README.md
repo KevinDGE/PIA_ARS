@@ -11,6 +11,10 @@ Plan de administración de riesgos de TI para **Casino Royale Enterprises** (cas
 | `Presentacion_Ejecutiva_Casino_Royale.pptx` | 12 diapositivas para público no técnico, con notas del orador |
 | `Guion_Presentacion_Ejecutiva.pdf` | Guion dividido por integrante (David abre con la introducción), con miniatura de cada diapositiva, tiempos y preguntas probables |
 
+## Material de apoyo (`apoyo/`)
+
+`Guia_de_defensa_del_plan.pdf`: para preparar la exposición. Explica por qué se eligió cada parte del plan, qué mejoras y alternativas tiene a futuro y sus posibles puntos de falla. No es un entregable del PIA.
+
 ## Cómo regenerarlos
 
 Todos los datos (riesgos, niveles, estrategias, responsables, KPI/KRI, fases) viven en `src/data.py`, y el guion de la presentación en `src/guion.py` (de ahí salen también las notas del orador). Para que los tres entregables sigan coincidiendo, cambia los datos solo ahí y ejecuta:
